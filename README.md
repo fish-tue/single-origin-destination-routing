@@ -28,3 +28,8 @@ W.P.M.H. (Maurice) Heemels<sup>1</sup> <a href="https://heemels.tue.nl"><img src
 Mauro Salazar<sup>1</sup> <a href="https://scholar.google.com/citations?user=0Z9zTYwAAAAJ&hl=en"><img src="https://cdn.icon-icons.com/icons2/2108/PNG/512/google_scholar_icon_130918.png" style="width:1em;margin-right:.5em;"></a> <a href="https://orcid.org/0000-0003-4433-5796"><img src="https://orcid.org/sites/default/files/images/orcid_16x16.png" style="width:1em;margin-right:.5em;" alt="ORCID iD icon"></a>
 
 <sub><sup>1</sup>Control Systems Technology section, Eindhoven University of Technology, the Netherlands<br></sub>
+
+***
+
+## 🏅 Acknowledgements
+The authors thank Jord van Kalmthout for revising this repository.
