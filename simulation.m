@@ -128,8 +128,8 @@ for j = 1:n
     plot([0 T_sim],[sum(x_star(j:n)) sum(x_star(j:n))],'--','Color','black','LineWidth',3);
 end
 legend({' Arc 1',' Arc 2',' Arc 3',' Arc 4',' Arc 5',' $\,x^\star$'},'Location','southeast','Interpreter','latex');
-ylabel('$x^{NE}(t)$','Interpreter','latex');
-xlabel('$t$','Interpreter','latex');
+ylabel('$\mathbf{x}^\mathrm{NE}(t)$','Interpreter','latex');
+% xlabel('$t$','Interpreter','latex');
 ylim([0 1]);
 hold off;
 % Save figure to .fig and .eps formats
@@ -142,7 +142,7 @@ k_mean = mean(k,1);
 k_max = max(k);
 k_min = min(k);
 k_var = sqrt(var(k));
-figure('Position',4*[0 0 192 144]);
+figure('Position',4*[0 0 192 144/2]);
 hold on;
 grid on;
 box on;
@@ -152,21 +152,22 @@ set(gca,'TickLabelInterpreter','latex')
 aux_x2 = [0:T_sim fliplr(0:T_sim)]';
 aux_y2 = [k_max fliplr(k_min)]';
 [aux_x2,aux_y2] = stairs_vector(aux_x2,aux_y2);
-fill(aux_x2,aux_y2,'k',...
+fill(aux_x2,aux_y2*1e-2,'k',...
     'LineWidth',2,'FaceColor','black','FaceAlpha',0.2,'EdgeAlpha',0);
 aux_x1 = [0:T_sim fliplr(0:T_sim)]';
 aux_y1 = [k_mean+k_var fliplr(k_mean-k_var)]';
 aux_y1(aux_y1<0) = 0;
 [aux_x1,aux_y1] = stairs_vector(aux_x1,aux_y1);
-fill(aux_x1,aux_y1,'k',...
+fill(aux_x1,aux_y1*1e-2,'k',...
     'LineWidth',2,'FaceColor','black','FaceAlpha',0.4,'EdgeAlpha',0);
-stairs(0:T_sim,k_mean,'LineWidth',2,'Color','black');
-stairs(aux_x1,aux_y1,'LineWidth',1,'Color',[0.4 0.4 0.4]);
-stairs(aux_x2,aux_y2,'LineWidth',1,'Color',[0.4 0.4 0.4]);
-legend({' max/min $\{k(t)\}$',' $\hat{k}(t)\pm\sigma_k(t)$',' $\hat{k}(t)$'},...
+stairs(0:T_sim,k_mean*1e-2,'LineWidth',2,'Color','black');
+stairs(aux_x1,aux_y1*1e-2,'LineWidth',1,'Color',[0.4 0.4 0.4]);
+stairs(aux_x2,aux_y2*1e-2,'LineWidth',1,'Color',[0.4 0.4 0.4]);
+legend({' max/min $\{k^i(t)\}$',' $\hat{k}^i(t)\pm\sigma_k(t)$',' $\hat{k}^i(t)$'},...
     'Location','northeast','Interpreter','latex');
-ylabel('$k(t)$','Interpreter','latex');
-xlabel('$t$','Interpreter','latex');
+%ylabel('$k^i(t), i = 1,\ldots,M$','Interpreter','latex');
+ylabel('Karma level $\times 10^{-2}$','Interpreter','latex');
+% xlabel('$t$','Interpreter','latex');
 hold off;
 % Save figure to .fig and .eps formats
 savefig('./fig/karma.fig');
@@ -181,7 +182,7 @@ for t = 1:T_sim+1
     cost_soc(t) = c(x(:,t));
     cost_soc_rel_opt(t) = (cost_soc(t)-cost_soc_opt)/cost_soc_opt;
 end
-figure('Position',4*[0 0 192 144]);
+figure('Position',4*[0 0 192 144/2]);
 hold on;
 grid on;
 box on;
@@ -190,8 +191,8 @@ set(gca, 'Layer', 'top');
 set(gca,'TickLabelInterpreter','latex')
 stairs(0:T_sim,cost_soc_rel_opt*100,'LineWidth',2.5,'Color','black');
 ylabel('$\Delta$ Societal cost $(\%)$','Interpreter','latex');
-xlabel('$t$','Interpreter','latex');
-ylim([-1 25]);
+% xlabel('$t$','Interpreter','latex');
+ylim([-1 30]);
 hold off;
 % Save figure to .fig and .eps formats
 savefig('./fig/cost.fig');
@@ -212,7 +213,7 @@ for t = 1:T_sim+1
     end
     delta_d(t) = 100*aux1/aux2;
 end
-figure('Position',4*[0 0 192 144]);
+figure('Position',4*[0 0 192 144/2]);
 hold on;
 grid on;
 box on;
@@ -222,7 +223,7 @@ set(gca,'TickLabelInterpreter','latex');
 stairs(0:T_sim,delta_s,':','LineWidth',2.5,'Color','black');
 stairs(0:T_sim,delta_d,'LineWidth',2.5,'Color','black');
 legend({'$\Delta \bar{s}(t)$','$\Delta \bar{d}(t)$'},'Interpreter','latex','Location','southwest');
-ylabel('Sensitivity and discomfort [$\%$]','Interpreter','latex');
+ylabel('Sensitivity, discomfort [$\%$]','Interpreter','latex');
 xlabel('$t$','Interpreter','latex');
 hold off;
 % Save figure to .fig and .eps formats

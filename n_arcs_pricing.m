@@ -78,13 +78,24 @@ for i = 1:n-1
     x_star_pp_basis(:,i) = aux/sqrt(aux'*aux); 
 end
 
+% Hyperparameters
+ga_population_size = 20;
+ga_threshold = 1e-2;
+ga_stall_it = 3;
+% Stopping criterion
+% - Cost below c(x_star)*(1+ ga_threshold)
+% - Or constnat cost for ga_stall_it generations
+
 % GA
 fprintf("---------------------------------------------------------------------");
+tic;
 options = optimoptions('ga','Display','diagnose',...
-    'CreationFcn', {@CustomCreationFcn, x_star_pp_basis, ub_p});
-options.MaxStallGenerations = 3;
+    'CreationFcn', {@CustomCreationFcn, x_star_pp_basis, ub_p},...
+    'PopulationSize',ga_population_size,'FitnessLimit',c(x_star)*(1+ga_threshold));
+options.MaxStallGenerations = ga_stall_it;
 p_opt_ga = ga(F,n,A,b,Aeq,beq,lb,ub,nolcon,1:n,options)';
 p_opt_ga = round(p_opt_ga);
+toc;
 fprintf("---------------------------------------------------------------------\n");
 
 % Output GA solution
