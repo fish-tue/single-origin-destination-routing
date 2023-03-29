@@ -129,7 +129,7 @@ for j = 1:n
 end
 legend({' Arc 1',' Arc 2',' Arc 3',' Arc 4',' Arc 5',' $\,x^\star$'},'Location','southeast','Interpreter','latex');
 ylabel('$\mathbf{x}^\mathrm{NE}(t)$','Interpreter','latex');
-% xlabel('$t$','Interpreter','latex');
+xlabel('$t$','Interpreter','latex');
 ylim([0 1]);
 hold off;
 % Save figure to .fig and .eps formats
@@ -163,11 +163,11 @@ fill(aux_x1,aux_y1*1e-2,'k',...
 stairs(0:T_sim,k_mean*1e-2,'LineWidth',2,'Color','black');
 stairs(aux_x1,aux_y1*1e-2,'LineWidth',1,'Color',[0.4 0.4 0.4]);
 stairs(aux_x2,aux_y2*1e-2,'LineWidth',1,'Color',[0.4 0.4 0.4]);
-legend({' max/min $\{k^i(t)\}$',' $\hat{k}^i(t)\pm\sigma_k(t)$',' $\hat{k}^i(t)$'},...
+legend({' $\max_i$/$\min_i$ $\{k^i(t)\}$',' $\hat{k}(t)\pm\sigma_k(t)$',' $\hat{k}(t)$'},...
     'Location','northeast','Interpreter','latex');
 %ylabel('$k^i(t), i = 1,\ldots,M$','Interpreter','latex');
 ylabel('Karma level $\times 10^{-2}$','Interpreter','latex');
-% xlabel('$t$','Interpreter','latex');
+xlabel('$t$','Interpreter','latex');
 hold off;
 % Save figure to .fig and .eps formats
 savefig('./fig/karma.fig');
@@ -191,7 +191,7 @@ set(gca, 'Layer', 'top');
 set(gca,'TickLabelInterpreter','latex')
 stairs(0:T_sim,cost_soc_rel_opt*100,'LineWidth',2.5,'Color','black');
 ylabel('$\Delta$ Societal cost $(\%)$','Interpreter','latex');
-% xlabel('$t$','Interpreter','latex');
+xlabel('$t$','Interpreter','latex');
 ylim([-1 30]);
 hold off;
 % Save figure to .fig and .eps formats
