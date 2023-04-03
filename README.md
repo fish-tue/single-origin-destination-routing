@@ -19,7 +19,8 @@ L. Pedroso, W. P. M. H. Heemels, and M. Salazar. “**Urgency-aware optimal rout
   author      = {Leonardo Pedroso and W. P. M. H. Heemels and Mauro Salazar},
   title       = {Urgency-aware Routing in Single Origin-destination Itineraries through Artificial Currencies},
   journal     = {arXiv preprint arXiv:2303.16945},
-  year        = {2023}
+  year        = {2023},
+  doi         = {10.48550/arXiv.2303.16945}
 }
 ```
 
