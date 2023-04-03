@@ -4,7 +4,7 @@
 
 This repository contains the **source-code of the methods and simulations** in
 
-L. Pedroso, W. P. M. H. Heemels, and M. Salazar, “**Urgency-aware optimal routing in repeated games through artificial currencies**” [*not published yet*]
+L. Pedroso, W. P. M. H. Heemels, and M. Salazar. “**Urgency-aware optimal routing in repeated games through artificial currencies**”. *arXiv Preprint* arXiv:2303.16945, [doi:10.48550/arXiv.2303.16945](https://doi.org/10.48550/arXiv.2303.16945).
 
 See the post [Urgency-aware Routing in Single Origin-destination Itineraries through Artificial Currencies](https://fish-tue.github.io/single-origin-destination-routing/) in the [FISH Project's Website](https://fish-tue.github.io) for **step-by-step instructions** on how the illustrative numerical results were obtained from the source code made available.
 
@@ -12,13 +12,14 @@ See the post [Urgency-aware Routing in Single Origin-destination Itineraries thr
 
 If you use this repository, **please reference the publication below**.
 
-L. Pedroso, W. P. M. H. Heemels, and M. Salazar, “**Urgency-aware optimal routing in repeated games through artificial currencies**” [*not published yet*]
+L. Pedroso, W. P. M. H. Heemels, and M. Salazar. “**Urgency-aware optimal routing in repeated games through artificial currencies**”. *arXiv Preprint* arXiv:2303.16945, [doi:10.48550/arXiv.2303.16945](https://doi.org/10.48550/arXiv.2303.16945).
 
 ```bib
 @article{PedrosoHeemelsEtAl2023,
-  title={Urgency-aware Routing in Single Origin-destination Itineraries through Artificial Currencies},
-  author={Pedroso, L. and Heemels, W. P. M. H. and Salazar, M.},
-  year={2023}
+  author      = {Leonardo Pedroso and W. P. M. H. Heemels and Mauro Salazar},
+  title       = {Urgency-aware Routing in Single Origin-destination Itineraries through Artificial Currencies},
+  journal     = {arXiv preprint arXiv:2303.16945},
+  year        = {2023}
 }
 ```
 
