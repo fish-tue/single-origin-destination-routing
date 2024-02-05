@@ -18,12 +18,16 @@
 % Toolboxes required: none
 % Authors: Leonardo Pedroso, W.P.M.H. (Maurice) Heemels, Mauro Salazar
 % Revision history:
+%   05/02/2024 - Leonardo Pedroso
+%       * Added final publication reference to [1] 
 %   13/03/2023 - Leonardo Pedroso
 %       * Initial implementation
 % References: 
-%   [1] L. Pedroso, W. P. M. H. Heemels, and M. Salazar, “Urgency-aware 
-%   optimal routing in repeated games through artificial currencies” 
-%   [not published yet]
+%   [1] L. Pedroso, W.P.M.H. Heemels and M. Salazar, "Urgency-Aware Routing
+%   in Single Origin-Destination Itineraries Through Artificial 
+%   Currencies," 2023 62nd IEEE Conference on Decision and Control (CDC), 
+%   Singapore, Singapore, 2023, pp. 4142-4149, 
+%   doi: 10.1109/CDC49753.2023.10383739.
 
 %% Initialization
 clear;

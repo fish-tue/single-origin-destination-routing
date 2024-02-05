@@ -23,16 +23,22 @@ function j_star = n_arcs_individual(d,T,p,k,k_ref,s,s_min,s_bar,s_max)
 % Toolboxes required: none
 % Authors: Leonardo Pedroso, W.P.M.H. (Maurice) Heemels, Mauro Salazar
 % Revision history:
+%   05/02/2024 - Leonardo Pedroso
+%       * Added final publication reference to [1] 
+%   24/11/2023 - Leonardo Pedroso
+%       * Bug fixes
 %   13/03/2023 - Leonardo Pedroso
 %       * Initial implementation
 % References: 
-%   [1] L. Pedroso, W. P. M. H. Heemels, and M. Salazar, “Urgency-aware 
-%   optimal routing in repeated games through artificial currencies” 
-%   [not published yet]
+%   [1] L. Pedroso, W.P.M.H. Heemels and M. Salazar, "Urgency-Aware Routing
+%   in Single Origin-Destination Itineraries Through Artificial 
+%   Currencies," 2023 62nd IEEE Conference on Decision and Control (CDC), 
+%   Singapore, Singapore, 2023, pp. 4142-4149, 
+%   doi: 10.1109/CDC49753.2023.10383739.
 
 %% Check feasibility
 n = length(d);
-if k < max([0, k_ij(n,n,k_ref,p,T)])
+if k < max([0, k_ij(n,n,k_ref,sort(p,1,'descend'),T)])
     j_star = nan;
     return;
 end
@@ -43,9 +49,10 @@ end
 % 1. Sort discomforts
 [d_srt,d_srt_idx] = sort(d);
 p_srt = p(d_srt_idx);
+
 % 2. See if there are equal discomforts
-[d_srt_neq, d_srt_idx, ~] = unique(d_srt,'stable');
-p_srt_neq = p_srt(d_srt_idx);
+[d_srt_neq, d_srt_neq_idx, ~] = unique(d_srt,'stable');
+p_srt_neq = p_srt(d_srt_neq_idx);
 % 3. Take out links p_j such that p_j >= p_i and d_j > d_i
 % These will never be solutions
 idx_prev_dp = 1;
@@ -89,15 +96,17 @@ j_star_srt_neq = find(d_srt_neq == d_srt_neq_dp(j_star_srt_neq_dp));
 j_star_srt = find(d_srt == d_srt_neq(j_star_srt_neq));
 if length(j_star_srt) > 1
     for l = 1:length(j_star_srt)
-        if k >= k_ref+p_srt_dp(j_star_srt(l))+T*min(p)
+        if k >= k_ref+p_srt(j_star_srt(l))+T*min(p)
             j_star_srt = j_star_srt(l);
             break;
         end
     end
 end
 % Match with original arc labels 
-j_star = find(d == d_srt(j_star_srt));
-
+j_star = d_srt_idx(j_star_srt);
+if isnan(j_star)
+    2
+end
 end
 
 %% Auxiliary functions
